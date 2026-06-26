@@ -4,7 +4,7 @@ Rotas principais do projeto ClubeLeitura.
 Reúne o admin, as rotas de autenticação JWT (SimpleJWT) e a documentação
 da API (drf-spectacular). As rotas de documentação recebem
 authentication_classes=[] e permission_classes=[AllowAny] porque a permissão
-global é IsAuthenticated — sem isso o Swagger/Redoc ficariam bloqueados.
+global é IsAuthenticated - sem isso o Swagger/Redoc ficariam bloqueados.
 '''
 from django.contrib import admin
 from django.urls import path

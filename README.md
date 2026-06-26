@@ -1,7 +1,7 @@
-# Clube de Leitura — Backend
+# Clube de Leitura - Backend
 
 API REST do **Clube de Leitura**, trabalho 2 da disciplina INF1407 (Programação para
-Web — PUC-Rio). O backend é uma API JSON feita com **Django REST Framework**, com
+Web - PUC-Rio). O backend é uma API JSON feita com **Django REST Framework**, com
 autenticação **JWT** e documentação **Swagger/OpenAPI**. O frontend é um projeto
 separado (site estático em HTML/CSS/TypeScript) que consome esta API.
 
@@ -10,16 +10,16 @@ separado (site estático em HTML/CSS/TypeScript) que consome esta API.
 ## Tecnologias
 
 - Python 3.12 / Django + Django REST Framework
-- `djangorestframework-simplejwt` — autenticação JWT (access + refresh)
-- `drf-spectacular` — documentação Swagger / OpenAPI
-- `django-cors-headers` — CORS (o frontend roda em outra origem)
+- `djangorestframework-simplejwt` - autenticação JWT (access + refresh)
+- `drf-spectacular` - documentação Swagger / OpenAPI
+- `django-cors-headers` - CORS (o frontend roda em outra origem)
 - PostgreSQL (produção, via Docker) / SQLite (desenvolvimento)
 - gunicorn + whitenoise (servir em container)
 
 ## Domínio
 
-- **Livro** — catálogo de livros (CRUD restrito a administradores; leitura pública).
-- **Leitura** — lista de leituras pessoal de cada usuário (status *Quero Ler / Lendo /
+- **Livro** - catálogo de livros (CRUD restrito a administradores; leitura pública).
+- **Leitura** - lista de leituras pessoal de cada usuário (status *Quero Ler / Lendo /
   Li*, nota de 1 a 5 e resenha), protegida por usuário.
 
 ## Como rodar localmente
@@ -56,7 +56,7 @@ Sobe o PostgreSQL e o backend em `http://localhost:8000/`.
 
 | Método | Rota | Descrição |
 | --- | --- | --- |
-| POST | `/api/token/` | login — retorna `access` e `refresh` |
+| POST | `/api/token/` | login - retorna `access` e `refresh` |
 | POST | `/api/token/refresh/` | renova o `access` |
 | POST | `/api/token/verify/` | verifica um token |
 

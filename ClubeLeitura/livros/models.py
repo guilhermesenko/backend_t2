@@ -1,5 +1,5 @@
 '''
-Models do app livros — catálogo de livros do Clube de Leitura.
+Models do app livros - catálogo de livros do Clube de Leitura.
 '''
 from django.db import models
 from django.contrib.auth.models import User

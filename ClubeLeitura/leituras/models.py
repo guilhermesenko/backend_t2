@@ -1,5 +1,5 @@
 '''
-Models do app leituras — lista de leituras pessoal de cada usuário.
+Models do app leituras - lista de leituras pessoal de cada usuário.
 '''
 from django.db import models
 from django.core.validators import MinValueValidator, MaxValueValidator
@@ -29,4 +29,4 @@ class Leitura(models.Model):
         ordering = ['-data_adicionado']
 
     def __str__(self):
-        return f'{self.usuario.username} — {self.livro.titulo}'
+        return f'{self.usuario.username} - {self.livro.titulo}'
