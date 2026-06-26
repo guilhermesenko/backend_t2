@@ -7,7 +7,7 @@ authentication_classes=[] e permission_classes=[AllowAny] porque a permissão
 global é IsAuthenticated - sem isso o Swagger/Redoc ficariam bloqueados.
 '''
 from django.contrib import admin
-from django.urls import path
+from django.urls import path, include
 
 from rest_framework.permissions import AllowAny
 from rest_framework_simplejwt.views import (
@@ -23,6 +23,9 @@ from drf_spectacular.views import (
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+
+    # Apps de domínio
+    path('livros/', include('livros.urls')),
 
     # Autenticação JWT
     path('api/token/', TokenObtainPairView.as_view(), name='token_obtain_pair'),
