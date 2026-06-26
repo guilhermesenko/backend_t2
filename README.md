@@ -63,7 +63,40 @@ Sobe o PostgreSQL e o backend em `http://localhost:8000/`.
 Envie o token nas requisições protegidas no cabeçalho
 `Authorization: Bearer <access token>`.
 
+## Endpoints da aplicação
+
+### Livros (catálogo)
+| Método | Rota | Permissão |
+| --- | --- | --- |
+| GET | `/livros/` | pública |
+| POST | `/livros/` | admin (is_staff) |
+| GET | `/livros/<id>/` | pública |
+| PUT | `/livros/<id>/` | admin |
+| DELETE | `/livros/<id>/` | admin |
+
+### Leituras (lista pessoal, sempre do usuário logado)
+| Método | Rota | Permissão |
+| --- | --- | --- |
+| GET | `/leituras/` | autenticado |
+| POST | `/leituras/` | autenticado |
+| GET | `/leituras/<id>/` | autenticado (dono) |
+| PUT | `/leituras/<id>/` | autenticado (dono) |
+| DELETE | `/leituras/<id>/` | autenticado (dono) |
+
+### Contas
+| Método | Rota | Descrição |
+| --- | --- | --- |
+| POST | `/contas/registrar/` | cria uma conta |
+| GET | `/contas/whoami/` | dados do usuário logado |
+| PUT | `/contas/trocar-senha/` | troca a senha (autenticado) |
+| POST | `/contas/recuperar-senha/` | solicita token de redefinição |
+| PUT | `/contas/recuperar-senha/` | redefine a senha com uid + token |
+
+Em desenvolvimento, a redefinição de senha usa o `EMAIL_BACKEND` de console: o uid e
+o token aparecem no log do servidor.
+
 ## Status
 
-Em desenvolvimento. Os endpoints de CRUD de livros e leituras, registro e gerência
-de senha estão sendo implementados nas próximas etapas.
+Funcionalidades implementadas: CRUD de livros e de leituras, autenticação JWT,
+registro de usuário, troca e redefinição de senha, controle de acesso por papel
+(admin x usuário) e documentação Swagger de todos os endpoints.
