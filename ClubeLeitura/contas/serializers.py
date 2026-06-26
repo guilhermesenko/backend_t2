@@ -27,3 +27,19 @@ class UsuarioSerializer(serializers.ModelSerializer):
     class Meta:
         model = User
         fields = ['id', 'username', 'email', 'is_staff']
+
+
+class TrocaSenhaSerializer(serializers.Serializer):
+    senha_atual = serializers.CharField(write_only=True)
+    senha_nova = serializers.CharField(write_only=True, validators=[validate_password])
+
+
+class SolicitaResetSerializer(serializers.Serializer):
+    # O usuário informa o e-mail para receber o token de redefinição.
+    email = serializers.EmailField()
+
+
+class ConfirmaResetSerializer(serializers.Serializer):
+    uid = serializers.CharField()
+    token = serializers.CharField()
+    senha_nova = serializers.CharField(write_only=True, validators=[validate_password])
