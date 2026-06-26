@@ -27,6 +27,7 @@ urlpatterns = [
     # Apps de domínio
     path('livros/', include('livros.urls')),
     path('leituras/', include('leituras.urls')),
+    path('contas/', include('contas.urls')),
 
     # Autenticação JWT
     path('api/token/', TokenObtainPairView.as_view(), name='token_obtain_pair'),
