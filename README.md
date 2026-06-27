@@ -40,7 +40,29 @@ python manage.py runserver
 A API sobe em `http://localhost:8000/`. Sem a variável de ambiente `DB_HOST` o
 projeto usa SQLite automaticamente.
 
-## Rodando com Docker (Django + PostgreSQL)
+## Rodando a imagem publicada no Docker Hub
+
+A imagem do backend está publicada em
+[guilhermesenko/clubeleitura_backend_t2](https://hub.docker.com/r/guilhermesenko/clubeleitura_backend_t2).
+Para baixar e executar (sobe com SQLite, faz as migrações e inicia o servidor):
+
+```bash
+docker pull guilhermesenko/clubeleitura_backend_t2:latest
+docker run --name clube_back -p 8000:8000 guilhermesenko/clubeleitura_backend_t2:latest
+```
+
+A API fica em `http://localhost:8000/` (Swagger em `/swagger/`).
+
+Para testar as funcionalidades de administrador (cadastro de livros), crie um
+superusuário no container em execução:
+
+```bash
+docker exec -it clube_back python manage.py createsuperuser
+```
+
+## Rodando com Docker Compose (Django + PostgreSQL)
+
+A partir do código-fonte, este comando sobe o PostgreSQL e o backend juntos:
 
 ```bash
 docker compose up --build
