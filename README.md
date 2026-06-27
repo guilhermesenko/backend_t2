@@ -5,6 +5,8 @@ Web - PUC-Rio). O backend é uma API JSON feita com **Django REST Framework**, c
 autenticação **JWT** e documentação **Swagger/OpenAPI**. O frontend é um projeto
 separado (site estático em HTML/CSS/TypeScript) que consome esta API.
 
+**Autor:** Guilherme Riechert Senko (matrícula 2011478)
+
 - Repositório do frontend: https://github.com/guilhermesenko/frontend_t2
 
 ## Tecnologias
@@ -95,8 +97,32 @@ Envie o token nas requisições protegidas no cabeçalho
 Em desenvolvimento, a redefinição de senha usa o `EMAIL_BACKEND` de console: o uid e
 o token aparecem no log do servidor.
 
-## Status
+## Telas
 
-Funcionalidades implementadas: CRUD de livros e de leituras, autenticação JWT,
-registro de usuário, troca e redefinição de senha, controle de acesso por papel
-(admin x usuário) e documentação Swagger de todos os endpoints.
+Documentação Swagger da API:
+
+![Swagger](img/swagger.png)
+
+Documentação ReDoc:
+
+![ReDoc](img/redoc.png)
+
+Painel administrativo do Django:
+
+![Admin](img/admin.png)
+
+## O que funcionou e o que não funcionou
+
+Tudo o que foi proposto foi testado e está funcionando:
+
+- CRUD completo de livros (leitura pública, escrita restrita a administradores).
+- CRUD completo de leituras, sempre limitado ao usuário logado.
+- Autenticação JWT (login, refresh e verify) e endpoint protegido (`IsAuthenticated`).
+- Registro de usuário, troca de senha e redefinição de senha por token.
+- Controle de acesso por papel (administrador x usuário comum).
+- Documentação Swagger e ReDoc de todos os endpoints.
+- Publicação da imagem no Docker Hub.
+
+Não há funcionalidades com problemas conhecidos. Em desenvolvimento, a redefinição de
+senha usa o backend de e-mail de console: o uid e o token aparecem no log do servidor
+(em produção, bastaria configurar um servidor SMTP real).
